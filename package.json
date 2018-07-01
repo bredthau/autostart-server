@@ -1,6 +1,6 @@
 {
   "name": "autostart-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Server for socket activating node services.",
   "keywords": "socket-activation auto-start auto-shutdown",
   "homepage": "https://github.com/bredthau/autostart-server",

@@ -8,7 +8,7 @@ This library requires __node v.6.5.0__ or higher for ES6 feature support.
 $ npm install autostart-server
 ```
 
-##Usage
+## Usage
 
 The following example will create a proxy, which will forward connections to port ``8080`` to the script ``~/server/main.js``, which should use the ``autostart-client`` library. 
 
@@ -31,13 +31,13 @@ config      Baseline configuration for the server                           (def
 
 ``server.close()`` will close all running apps, and stop listening to the associated ports. ``Client`` style apps will be soft-closed using the ``#asc-exit`` event, while all other events will be terminated using ``process.kill()``.
 
-####Configuration
+#### Configuration
 The server configuration is an object with the following members (all optional):
 ```
 socketDir   Base-directory for the creation of unix domain sockets (default: os.tmpdir()) 
 ```
 
-####App
+#### App
 An app describes a server application to be controlled by the ``autostart-server``. It contains the following members:
 ```
 name        A name for the app. Must be unique over all apps for the server since it is used for identification purposes
@@ -61,7 +61,7 @@ file        The file being executed by the app. Extracted from the client, scrip
 type        The type of the app to execute. Either "client", "script" or "exe" depending on the original properties
 ```
 
-####AppTypes
+#### AppTypes
 The type determines how the app is executed and is derived from the property determining the executable file.
 
 ``exe`` is the most general type. This will execute any type of executable using a ``spawn`` call. Executing an ``exe`` using node would be done using e.g.:
@@ -78,7 +78,7 @@ server.add({name: "script", dir: "./script", script: "./server.js", src: 8080, d
 ```js
 server.add({name: "client", dir: "./client", client: "./server.js", src: 8080});
 ```
-####Sockets
+#### Sockets
 Sockets for ``src`` and ``dst`` can be either portnumbers or specify a unix-domain-socket (named-pipe on windows). These are specified by passing an object containing a ``socket`` property with the name of the socket. Example:
 ```js
 server.add({name: "client", dir: "./client", client: "./server.js", src: 8080, dst: {socket: "client-sock"}});
@@ -88,10 +88,10 @@ Since client-type apps get passed the socket on initialization the server can au
 server.add({name: "client", dir: "./client", client: "./server.js", src: 8080, dst: {socket: true}});
 ```
 
-###Events
+### Events
 An ``AutoStartServer`` is an ``EventEmitter``, emitting the following events:
 
-####error
+#### error
 This event will be emitted, when there is an error on either an incoming or an outcoming connection. The event listener will be called with an object containing the following members:
 ```
 type        "incoming" or "outgoing" depending on the connection throwing the error
