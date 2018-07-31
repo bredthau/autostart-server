@@ -1,6 +1,6 @@
 {
   "name": "autostart-server",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "Server for socket activating node services.",
   "keywords": "socket-activation auto-start auto-shutdown",
   "homepage": "https://github.com/bredthau/autostart-server",
@@ -11,13 +11,18 @@
   "files": [],
   "scripts": {
     "test": "mocha ./test/",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- ./test/"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- ./test/",
+    "artillery": "; artillery test/artillery.yml"
   },
   "devDependencies": {
-    "autostart-client": "^1.0.1",
+    "autostart-client": "^1.2.1",
+    "bluebird": "^3.5.1",
     "chai": "^4.1.2",
+    "console.table": "^0.10.0",
+    "event-debug": "^2.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "mocha.parallel": "^0.15.5"
-  }
+    "ws": "^6.0.0"
+  },
+  "dependencies": {}
 }
